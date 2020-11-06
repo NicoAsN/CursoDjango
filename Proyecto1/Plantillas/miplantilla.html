@@ -1,0 +1,43 @@
+<html>
+
+    <body>
+
+        {% include "superior/barra.html" %}
+    <h2 style="color: blue;">
+    Hola alumnos estamos viendo nuestra primera plantilla
+    </h2>
+
+    {% if nombre_persona == 'Alumno Nicolas' %}
+
+        <p>Es alumno esta en el curso de Django</p>
+
+    {% else %}
+
+        <p>No es alumno del curso de Django</p>
+
+    {% endif %}
+
+    {# Comentario de una sola linea #}
+    {% comment %}
+    Esto es un comentario largo
+    {% endcomment %}
+
+    <p>El nombre del alumno es: {{nombre_persona|lower}} {{apellido_persona.upper}} </p>
+    <p>Estamos viendo el tema de las plantillas a dia: {{momento_actual.day}} / {{momento_actual.month}} / {{momento_actual.year}}</p>
+    <p><strong>Temas del curso:</strong></p>
+    <p>
+        <ul>
+        {% if temas %}
+            {% for el_tema in temas %}
+
+                <li>{{el_tema|first|lower}}</li>
+
+            {% endfor %}
+
+        {% else %}
+            <p>No hay elementos que mostrar</p>
+        {% endif %}
+        </ul>
+    </p>
+    <body>
+    <html>
